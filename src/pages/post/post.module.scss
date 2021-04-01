@@ -56,3 +56,27 @@
     }
   }
 }
+
+.postsNavigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(187, 187, 187, 0.342);
+
+  span {
+    padding: 2rem 0 3rem;
+    line-height: 1.5rem;
+    max-width: 300px;
+
+    a {
+      color: #ff57b2;
+    }
+  }
+}
+
+.publicationDate {
+  color: #bbb;
+  font-size: 0.9rem;
+  font-style: italic;
+}
