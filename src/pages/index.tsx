@@ -79,9 +79,10 @@ export default function Home({
                       }
                     )}
                   </span>
-
-                  <FiUser />
-                  {post.data.author}
+                  <span>
+                    <FiUser />
+                    {post.data.author}
+                  </span>
                 </p>
               </a>
             </Link>
