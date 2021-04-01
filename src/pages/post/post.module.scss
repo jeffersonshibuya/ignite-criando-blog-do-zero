@@ -1,1 +1,58 @@
 // TODO
+.container {
+  color: #f8f8f8;
+  width: 100%;
+
+  > img {
+    max-height: 450px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.content {
+  max-width: 700px;
+  margin: 0 auto;
+
+  strong {
+    margin-top: 3rem;
+    font-size: 2rem;
+    display: block;
+  }
+
+  span.info {
+    display: flex;
+    align-items: center;
+    line-height: 3.5rem;
+    color: #bbb;
+
+    section {
+      display: flex;
+      align-items: center;
+      margin-right: 1.5rem;
+
+      svg {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+.textContent {
+  h1 {
+    font-size: 2rem;
+    padding: 3rem 0 1.5rem;
+  }
+
+  section {
+    p {
+      line-height: 1.5rem;
+      text-align: justify;
+      color: #bbb;
+
+      & + p {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
