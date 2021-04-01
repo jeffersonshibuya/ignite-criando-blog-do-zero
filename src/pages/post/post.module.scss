@@ -4,7 +4,7 @@
   width: 100%;
 
   > img {
-    max-height: 450px;
+    max-height: 400px;
     width: 100%;
     object-fit: cover;
   }
@@ -20,7 +20,7 @@
     display: block;
   }
 
-  span.info {
+  .info {
     display: flex;
     align-items: center;
     line-height: 3.5rem;

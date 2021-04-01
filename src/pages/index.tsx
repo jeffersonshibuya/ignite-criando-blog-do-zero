@@ -68,18 +68,21 @@ export default function Home({
               <a>
                 <strong> {post.data.title} </strong>
                 <p>{post.data.subtitle}</p>
-                <span className={styles.info}>
-                  <FiCalendar />
-                  {format(
-                    new Date(post.first_publication_date),
-                    'dd MMM yyyy',
-                    {
-                      locale: ptBR,
-                    }
-                  )}
+                <p className={styles.info}>
+                  <span>
+                    <FiCalendar />
+                    {format(
+                      new Date(post.first_publication_date),
+                      'dd MMM yyyy',
+                      {
+                        locale: ptBR,
+                      }
+                    )}
+                  </span>
+
                   <FiUser />
                   {post.data.author}
-                </span>
+                </p>
               </a>
             </Link>
           ))}
