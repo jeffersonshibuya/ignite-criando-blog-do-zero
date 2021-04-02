@@ -205,8 +205,6 @@ export const getStaticProps: GetStaticProps = async ({
     }
   );
 
-  console.log(response);
-
   const post = {
     uid: response.uid,
     first_publication_date: response.first_publication_date,
