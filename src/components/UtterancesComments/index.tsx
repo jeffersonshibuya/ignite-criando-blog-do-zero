@@ -1,24 +1,64 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
-export const UtterancesComments: React.FC = () => {
-  const commentsDiv = useRef<HTMLDivElement>();
+const addUtterancesScript = (
+  parentElement,
+  repo,
+  label,
+  issueTerm,
+  theme,
+  isIssueNumber
+): void => {
+  const script = document.createElement('script');
+  script.setAttribute('src', 'https://utteranc.es/client.js');
+  script.setAttribute('crossorigin', 'anonymous');
+  script.setAttribute('async', 'true');
+  script.setAttribute('repo', repo);
+
+  if (label !== '') {
+    script.setAttribute('label', label);
+  }
+
+  if (isIssueNumber) {
+    script.setAttribute('issue-number', issueTerm);
+  } else {
+    script.setAttribute('issue-term', issueTerm);
+  }
+
+  script.setAttribute('theme', theme);
+
+  parentElement.appendChild(script);
+};
+
+export default function UtterancesComments(): JSX.Element {
+  const repo = 'jeffersonshibuya/ignite-blog-utteranc';
+  const theme = 'github-dark';
+  const issueTerm = 'pathname';
+  const label = 'blog-comment';
 
   useEffect(() => {
-    if (commentsDiv) {
-      const scriptEl = document.createElement('script');
-      scriptEl.setAttribute('src', 'https://utteranc.es/client.js');
-      scriptEl.setAttribute('crossorigin', 'anonymous');
-      scriptEl.setAttribute('async', 'true');
-      scriptEl.setAttribute('repo', 'jeffersonshibuya/ignite-blog-utteranc');
-      scriptEl.setAttribute('issue-term', 'pathname');
-      scriptEl.setAttribute('label', 'blog-comment');
-      scriptEl.setAttribute('theme', 'github-dark');
-      commentsDiv.current.appendChild(scriptEl);
-    }
-  }, []);
+    // Get comments box
+    const commentsBox = document.getElementById('commentsBox');
 
-  return <div ref={commentsDiv} />;
-};
+    // Check if comments box is loaded
+    if (!commentsBox) {
+      return;
+    }
+
+    // Get utterances
+    const utterances = document.getElementsByClassName('utterances')[0];
+
+    // Remove utterances if it exists
+    if (utterances) {
+      utterances.remove();
+    }
+
+    // Add utterances script
+    addUtterancesScript(commentsBox, repo, label, issueTerm, theme, false);
+  });
+
+  return <div id="commentsBox" />;
+}
+
 // <section
 //   ref={elem => {
 //     if (!elem) {

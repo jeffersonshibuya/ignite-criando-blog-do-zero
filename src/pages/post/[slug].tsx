@@ -13,7 +13,7 @@ import { getPrismicClient } from '../../services/prismic';
 
 import styles from './post.module.scss';
 import Header from '../../components/Header';
-import { UtterancesComments } from '../../components/UtterancesComments';
+import UtterancesComments from '../../components/UtterancesComments';
 
 interface Post {
   uid?: string;
